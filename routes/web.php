@@ -23,7 +23,8 @@ Route::get('/', function () {
 
 /* Login & Registrations */
 Route::get('/login',[AuthController::class,'login'])->name('login');
-Route::get('/signup',[AuthController::class,'register'])->name('signup');
+Route::get('/signup',[AuthController::class,'showRegistrationForm'])->name('signup');
+Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
 
 
 Route::get('/', function () {

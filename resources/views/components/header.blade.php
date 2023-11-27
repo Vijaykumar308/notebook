@@ -26,8 +26,6 @@
                     </form>
                 </div>      
             @endauth
-
-
         </ul>  
     </nav>
 </header>

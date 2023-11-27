@@ -21,7 +21,7 @@
                     <button type="submit" class="btn">Login with Guest</button>
                 </div>
                 <div class="register-link">
-                    <p>Dont't have an account? <a href="/register">
+                    <p>Dont't have an account? <a href="{{route('signup')}}">
                             Register
                     </a></p>
                 </div>
