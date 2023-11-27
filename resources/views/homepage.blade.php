@@ -1,5 +1,5 @@
 @extends('master')
-@section('title','HomePage wala')
+@section('title','NoteBook++')
 
 @section('content')
     <x-hero title="Welcome @ Notebook++"/>

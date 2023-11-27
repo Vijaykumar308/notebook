@@ -1,8 +1,8 @@
 <header class="header">
     <div class="logo">
-        <a href="/home"><span>Notebook++</span></a>
+        <a href="/"><span>Notebook++</span></a>
     </div>
-   
+    
     <nav class="navigation">
         <ul>
             <li class={{request()->is('/') ? 'nav-active': ''}}><a href="{{route('/')}}" >Home</a></li>
@@ -12,7 +12,7 @@
                     <input type="submit" value="Login">
                 </a>
             </div> 
-
+            
             <div class="logout">
                 <a href="{{route('signup')}}">
                     <input type="submit" value="Signup">
