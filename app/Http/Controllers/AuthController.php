@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -41,5 +42,27 @@ class AuthController extends Controller
 
         // Redirect the user after registration
         return redirect('login')->with('success', 'Registration successful. Please login.');
+    }
+
+    public function loginAsGuest(Request $request)
+    {
+        // Log out the current user
+        // Auth::logout();
+        
+        // Log in a predefined guest user
+        $guestUser = User::where('username', 'Guest')->first();
+
+        if ($guestUser) {
+            Auth::login($guestUser);
+            return redirect('/'); // Redirect to the dashboard or any other page
+        }
+
+        return redirect('/login')->with('error', 'Guest user not found.');
+    }
+
+    public function logout() {
+        Auth::logout();
+
+        return redirect('/');
     }
 }
