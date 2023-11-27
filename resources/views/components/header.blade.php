@@ -8,18 +8,18 @@
             <li class={{request()->is('/') ? 'nav-active': ''}}><a href="{{route('/')}}" >Home</a></li>
             <li class={{request()->is('notes*') ? 'nav-active': ''}} ><a href="{{route('notes')}}">My Notes</a></li>
             <div class="logout">
-                <form action="">
+                <a href="{{route('login')}}">
                     <input type="submit" value="Login">
-                </form>
+                </a>
             </div> 
 
             <div class="logout">
-                <form action="">
+                <a href="{{route('signup')}}">
                     <input type="submit" value="Signup">
-                </form>
+                </a>
             </div> 
             @auth
-                <li class="circle"><a href="#"> + </a></li>
+                <li class="circle"><a href="{{route('create_notes')}}"> + </a></li>
                 <div class="logout">
                     <form action="">
                         <input type="submit" value="Logout">
