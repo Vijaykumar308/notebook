@@ -15,4 +15,13 @@ class NoteController extends Controller
     {
         return view('create_note');
     }
+
+    public function store() {
+
+    }
+
+    public function edit() {
+        return view('edit_note');
+    }
 }
+
