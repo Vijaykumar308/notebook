@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/', function () {
+    return view('homepage');
+})->name('/');
+
 
 /* Login & Registrations */
 Route::get('/login/guest', [AuthController::class, 'loginAsGuest'])->name('login.guest');
@@ -27,21 +32,21 @@ Route::get('/login/guest', [AuthController::class, 'loginAsGuest'])->name('login
 Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::get('/signup',[AuthController::class,'showRegistrationForm'])->name('signup');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
-
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/', function () {
-    return view('homepage');
-})->name('/');
 
-
+/* Notes Related Routes */
 Route::get('/notes',[NoteController::class,'index'])->name('notes');
 Route::get('/notes/create',[NoteController::class,'create'])->name('create_notes');
 Route::get('/notes/edit/laravel-post',[NoteController::class,'edit'])->name('edit_notes');
 
-
 Route::get('/notes/laravel-project', function () {
     return view('welcome');
 });
+
+
+/* Category Related Routes */
+Route::get('/category/create',[CategoryController::class,'showCreateCategoryPage'])->name('category.create');
+Route::post('/category/create',[CategoryController::class,'storeCategory'])->name('category.store');
 
 
