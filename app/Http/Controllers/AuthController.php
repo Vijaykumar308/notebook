@@ -50,7 +50,7 @@ class AuthController extends Controller
         // Auth::logout();
         
         // Log in a predefined guest user
-        $guestUser = User::where('username', 'Guest')->first();
+        $guestUser = User::where('username', 'guest')->first();
 
         if ($guestUser) {
             Auth::login($guestUser);

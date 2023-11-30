@@ -46,7 +46,10 @@ Route::get('/notes/laravel-project', function () {
 
 
 /* Category Related Routes */
+Route::get('/category',[CategoryController::class,'list'])->name('category.list');
 Route::get('/category/create',[CategoryController::class,'showCreateCategoryPage'])->name('category.create');
 Route::post('/category/create',[CategoryController::class,'storeCategory'])->name('category.store');
+Route::get('/category/edit/{id}',[CategoryController::class,'editCategory'])->name('category.edit');
+Route::put('/category/update/{id}',[CategoryController::class,'updateCategory'])->name('category.update');
 
 
