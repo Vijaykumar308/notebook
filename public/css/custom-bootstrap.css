@@ -1,0 +1,129 @@
+/* Flex container with items centered and justified between */
+.d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Second button with margin */
+.ms-3 {
+    margin-left: 0.75rem; /* Adjust as needed */
+}
+
+/* Hidden on small screens, flex container with items centered, justified between, and space-filling */
+.d-none {
+    display: none;
+}
+
+.d-sm-flex {
+    display: flex;
+}
+
+.flex-fill {
+    flex: 1;
+}
+
+/* Text showing results */
+.text-sm {
+    font-size: 0.875rem; /* 14px assuming a base font size of 16px */
+    color: #4b5563; /* Adjust to your text color */
+}
+
+.text-gray-700 {
+    color: #4a5568; /* Adjust to your text color */
+}
+
+/* Navigation links */
+.btn-group {
+    display: flex;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Outline style for secondary buttons */
+.btn-outline-secondary {
+    color: #6b7280; /* Adjust to your text color */
+    background-color: transparent;
+    background-image: none;
+    border-color: #d2d6dc; /* Adjust to your border color */
+}
+
+.btn-outline-secondary:hover {
+    color: #4b5563; /* Adjust to your hover text color */
+    border-color: #718096; /* Adjust to your hover border color */
+}
+
+.btn-outline-secondary:focus {
+    border-color: #5a67d8; /* Adjust to your focus border color */
+    box-shadow: 0 0 0 0.2rem rgba(66, 153, 225, 0.25); /* Adjust to your focus box shadow */
+}
+
+/* Add more specific styles or adjust as needed */
+/* Hover effect for all buttons */
+.btn:hover {
+    color: #fff; /* Adjust to your hover text color */
+    background-color: #4a5568; /* Adjust to your hover background color */
+    border-color: #4a5568; /* Adjust to your hover border color */
+}
+
+/* Active state for all buttons */
+.btn:active {
+    color: #fff; /* Adjust to your active text color */
+    background-color: #1e293b; /* Adjust to your active background color */
+    border-color: #1e293b; /* Adjust to your active border color */
+}
+
+/* Pagination links */
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #1e293b; /* Adjust to your link color */
+    background-color: #cbd5e1; /* Adjust to your link background color */
+    border: 1px solid #e2e8f0; /* Adjust to your link border color */
+}
+
+.page-link:hover {
+    color: #1a202c; /* Adjust to your hover link color */
+    background-color: #a0aec0; /* Adjust to your hover link background color */
+    border-color: #a0aec0; /* Adjust to your hover link border color */
+}
+
+.page-link:focus {
+    color: #1a202c; /* Adjust to your focus link color */
+    background-color: #a0aec0; /* Adjust to your focus link background color */
+    border-color: #a0aec0; /* Adjust to your focus link border color */
+    box-shadow: 0 0 0 0.2rem rgba(75, 85, 99, 0.25); /* Adjust to your focus box shadow */
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff; /* Adjust to your active link color */
+    background-color: #1e293b; /* Adjust to your active link background color */
+    border-color: #1e293b; /* Adjust to your active link border color */
+}
+
+.page-item.disabled .page-link {
+    color: #a0aec0; /* Adjust to your disabled link color */
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: #fff; /* Adjust to your disabled link background color */
+    border-color: #e2e8f0; /* Adjust to your disabled link border color */
+}
+
+/* Add more specific styles or adjust as needed */
