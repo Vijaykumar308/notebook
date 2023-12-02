@@ -1,3 +1,9 @@
+<style>
+    .ck-editor__editable_inline {
+        height: 40vh;
+        resize: vertical;
+    }
+</style>
 @extends('master')
 @section('title','create')
 
@@ -5,13 +11,14 @@
     <x-hero title="Notebook++ | Create"/>
 
     <section class="container create-note">
-        <form action="" method="post">
+        <form action="{{route('notes.store')}}" method="POST">
+            @csrf
             <div class="form-group">
-                <input type="text" placeholder="Type Title" class="input-title">
+                <input type="text" name="title" placeholder="Type Title" class="input-title">
             </div>
 
             <div class="form-group">
-                <textarea cols="5" rows="15" id="editor"></textarea>
+                <textarea cols="5" rows="15" name="notesContent" id="editor"></textarea>
             </div>
 
             <div class="form-group">
@@ -19,13 +26,14 @@
             </div>
         </form>
     </section>
-
 @endsection
   <script>
     document.addEventListener('DOMContentLoaded', function () {
         ClassicEditor
             .create(document.querySelector('#editor'), {
-                height: '400px'
+               ckfinder: {
+                uploadUrl:"{{route('ckeditor.upload',['_token'=>csrf_token()])}}",
+               }
             })
             .catch(error => {
                 console.error(error);

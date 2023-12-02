@@ -7,7 +7,6 @@
    <div class="category container wrapper">
     <h1>Update Category</h1>
     <ul>
-        {{$errors}}
         @foreach($errors->all() as $error)
             <li>{{ $error }}</li>
         @endforeach

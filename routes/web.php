@@ -40,6 +40,10 @@ Route::get('/notes',[NoteController::class,'index'])->name('notes');
 Route::get('/notes/create',[NoteController::class,'create'])->name('create_notes');
 Route::get('/notes/edit/laravel-post',[NoteController::class,'edit'])->name('edit_notes');
 
+// upload featured images to public/media dir
+Route::post('/upload',[NoteController::class,'upload'])->name('ckeditor.upload');
+Route::post('/notes/create',[NoteController::class,'store'])->name('notes.store');
+
 Route::get('/notes/laravel-project', function () {
     return view('welcome');
 });
