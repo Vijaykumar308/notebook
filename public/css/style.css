@@ -35,8 +35,7 @@ li {
     --light-green: #37BAA8;
 }
 .nav-active {
-    /* border-top: 2px solid yellow; */
-    border-bottom: 2px solid yellow;
+    border-bottom: 2px solid var(--light-green);
     padding: 0 0 .5rem;
 }
 
@@ -68,6 +67,10 @@ li {
     align-items: center;
 }
 
+.navigation ul li {
+    padding: 0 0 0.5rem;
+}
+
 .navigation ul li a {
     color: var(--light-gray);
     letter-spacing: 1px;
@@ -81,12 +84,12 @@ li {
 .navigation .circle {
     border-radius: 50%;
     width: 36px;
-    background: #60a5fa;
+    background: var(--light-green);
     height: 36px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 28px;
+    font-size: 17px;
 }
 
 .navigation .circle a {
@@ -105,13 +108,14 @@ li {
 }
 
 .logout input[type="submit"]:hover {
-    background-color: #37BAA8;
+    background-color: var(--light-green);
     transition: .5s all;
 }
 
 
 .hero {
     background-color: var(--primary-dark);
+    /* background-color: var(--light-green); */
     padding: 10rem 0;
 }
 
@@ -427,6 +431,35 @@ to {opacity: 1}
     list-style-type: disc;
     padding: 1rem;
 }
+
+.category-list-view {
+    margin: 4rem auto !important;
+    padding: 2rem;
+    background-color: var(--white);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+.category-list-view table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.category-list-view th, .category-list-view td {
+    border: 1px solid var(--light-gray);
+    padding: 1.2rem;
+    text-align: left;
+}
+
+.category-list-view th {
+    background-color: var(--light-green);
+    color: var(--white);
+}
+
+.category-list-view tr:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
 
 .note {
     padding: 5rem;

@@ -1,10 +1,13 @@
 @extends('master')
-
 @section('title','Category')
 @section('content')
    <x-hero title="All Categories List"/>
-  <div class="container">
-
+  <div class="container category-list-view">
+    <div>
+        <a href="{{route('category.create')}}">
+            <button class="btn"> Add Category</button>
+        </a>
+    </div>
       <table>
           <thead>
               <tr>
@@ -42,39 +45,5 @@
   
 @endsection
 <style>
-   header {
-       background-color: var(--primary-dark);
-       color: var(--white);
-       padding: 10px;
-       text-align: center;
-   }
-
-   .container {
-       max-width: 800px;
-       margin: 20px auto;
-       padding: 20px;
-       background-color: var(--white);
-       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   }
-
-   table {
-       width: 100%;
-       border-collapse: collapse;
-       margin-top: 20px;
-   }
-
-   th, td {
-       border: 1px solid var(--light-gray);
-       padding: 12px;
-       text-align: left;
-   }
-
-   th {
-       background-color: var(--primary-dark);
-       color: var(--white);
-   }
-
-   tr:nth-child(even) {
-       background-color: var(--light-gray);
-   }
+   
 </style>
