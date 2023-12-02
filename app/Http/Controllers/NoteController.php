@@ -56,7 +56,7 @@ class NoteController extends Controller
             dd($e);
         }
 
-        return redirect(route('notes'))->with('success','Notes Created successfully');
+        return back()->with('message','Notes Created Successfully');
     }
 
     public function edit() {
