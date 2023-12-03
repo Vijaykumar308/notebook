@@ -20,6 +20,6 @@
     <x-footer/>
     
     <script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>     --}}
+    <script src="{{asset('js/main.js')}}"></script>
 </body>
 </html>
