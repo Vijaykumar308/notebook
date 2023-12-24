@@ -14,7 +14,7 @@
             "progressBar": true,
             "closeButton": true
         }
-        toastr.options.positionClass = 'toast-top-center';
+        toastr.options.positionClass = 'toast-bottom-right';
         toastr.success("{{ Session::get('message') }}",{timeOut:1000}); 
     </script>
 @endif
