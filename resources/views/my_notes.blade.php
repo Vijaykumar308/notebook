@@ -11,7 +11,9 @@
                 <x-note-card />
             @endfor
         </div>
-        
+
+        {{-- {{$categories}} --}}
+
         <div class="category-section">
             <h1>Category</h1>
             <ul>

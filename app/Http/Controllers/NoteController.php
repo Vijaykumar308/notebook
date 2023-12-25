@@ -11,6 +11,9 @@ class NoteController extends Controller
 {
     public function index()
     {
+        // $user = Auth::user();
+        // $categories = $user->categories;
+        // return view('my_notes',['categories'=>$categories]);
         return view('my_notes');
     }
 
