@@ -42,9 +42,9 @@
                 <div class="input-group">
                     <select class="select-category">
                         <option></option>
-                        <option>Blue cheese with crackers</option>
-                        <option>Steak</option>
-                        <option>Other</option>
+                        @foreach ($categories as $category)
+                          <option value="{{$category->id}}">{{$category->name}}</option> 
+                        @endforeach
                     </select>
                     <label>Select Category</label>
                 </div>

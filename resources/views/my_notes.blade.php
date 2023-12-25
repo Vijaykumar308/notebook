@@ -17,12 +17,12 @@
         <div class="category-section">
             <h1>Category</h1>
             <ul>
-                <li>All Notes</li>
-                <li>Importance Notes</li>
-                <li>Liked</li>
-                <li>shared</li>
-                <li>Saved</li>
-                <li>Shayri</li>
+               @foreach ($categories as $category)
+                <input type="checkbox" name="{{$category->name}}" id="{{$category->name}}">
+                <label for="{{$category->name}}">{{$category->name}}</label>
+                <br>
+                   {{-- <li>{{$category->name}}</li> --}}
+               @endforeach
             </ul>
         </div>
    </div>

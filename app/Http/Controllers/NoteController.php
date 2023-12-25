@@ -6,20 +6,33 @@ use App\Models\Note;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class NoteController extends Controller
 {
     public function index()
     {
-        // $user = Auth::user();
-        // $categories = $user->categories;
-        // return view('my_notes',['categories'=>$categories]);
-        return view('my_notes');
+        $userId = Auth::user()->id;
+        $categories = DB::table('categories')
+        ->join('notes', 'notes.category_id', '=', 'categories.id')
+        ->select('categories.id','name')
+        ->distinct()
+        ->where('user_id', $userId)
+        ->get();
+        return view('my_notes',['categories'=>$categories]);
     }
 
     public function create() 
     {
-        return view('create_note');
+        $userId = Auth::user()->id;
+        $categories = DB::table('categories')
+        ->join('notes', 'notes.category_id', '=', 'categories.id')
+        ->select('categories.id','name')
+        ->distinct()
+        ->where('user_id', $userId)
+        ->get();
+
+        return view('create_note',['categories'=> $categories]);
     }
 
     public function upload(Request $request) 

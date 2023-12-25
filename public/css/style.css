@@ -424,12 +424,13 @@ to {opacity: 1}
 }
 
 .category-section ul {
-    margin-left: 3rem;
+    /* margin-left: 3rem; */
     margin-top: 2rem;
 }
-.category-section ul li {
-    list-style-type: disc;
-    padding: 1rem;
+.category-section ul input[type='checkbox'] {
+    /* list-style-type: disc; */
+    /* padding: 1rem; */
+    margin-bottom: 1.5rem;
 }
 
 .category-list-view {
@@ -549,6 +550,7 @@ to {opacity: 1}
     appearance: none;
     outline: none;
     border: 0;
+    width: 100%;
     border-bottom: solid 2px var(--light-green);
     padding: 1.5rem 6rem 0rem 0;
     font-size: 1.8rem;
@@ -557,10 +559,12 @@ to {opacity: 1}
   }
 
   .input-group {
+    width: 64%;
     display: inline-block;
     margin-right: 20px;
     position: relative;
   }
+
 
   .input-group input {
     padding: 1.5rem 0px;
