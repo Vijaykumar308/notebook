@@ -41,10 +41,15 @@
                 </div>
                 <div class="input-group">
                     <select class="select-category">
-                        <option></option>
-                        @foreach ($categories as $category)
-                          <option value="{{$category->id}}">{{$category->name}}</option> 
-                        @endforeach
+                        @if(!empty($categories))
+                          <option value=""> </option>
+                          <option value="1">All</option>
+                        @else
+                          @foreach ($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option> 
+                          @endforeach
+                        @endif
+                        
                     </select>
                     <label>Select Category</label>
                 </div>

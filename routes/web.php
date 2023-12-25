@@ -29,7 +29,8 @@ Route::get('/', function () {
 /* Login & Registrations */
 Route::get('/login/guest', [AuthController::class, 'loginAsGuest'])->name('login.guest');
 
-Route::get('/login',[AuthController::class,'login'])->name('login');
+Route::get('/login',[AuthController::class,'showLoginPage'])->name('login');
+Route::get('/login/action',[AuthController::class,'login'])->name('loginAction');
 Route::get('/signup',[AuthController::class,'showRegistrationForm'])->name('signup');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

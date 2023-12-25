@@ -39,6 +39,10 @@ li {
     padding: 0 0 .5rem;
 }
 
+.auth-user-name{
+    color: #fff;
+}
+
 .container {
     width: 90%;
     margin: 0 auto;

@@ -10,9 +10,27 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function login() 
+    public function showLoginPage() 
     {
         return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'username' => 'required',
+            'password'  => 'required',
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+ 
+            return redirect()->intended('/');
+        }
+ 
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
     }
 
     public function showRegistrationForm() {
