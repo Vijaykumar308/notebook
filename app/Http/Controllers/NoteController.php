@@ -64,7 +64,7 @@ class NoteController extends Controller
                 'title' => $request->title,
                 'body'  => $request->notesContent,
                 'user_id' => Auth::id(),
-                'category_id'=> 1
+                'category_id'=> $request->category
             ]);
         }
         catch (Exception $e) 

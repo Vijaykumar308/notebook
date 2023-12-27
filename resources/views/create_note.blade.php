@@ -40,7 +40,7 @@
                     <input type="submit" class="btn btn-view create-note-button" value="Publish">
                 </div>
                 <div class="input-group">
-                    <select class="select-category">
+                    <select class="select-category" name="category">
                       @if(count($categories) > 0)
                         @foreach($categories as $category)
                           <option value="{{ $category->id }}">{{ $category->name }}</option>
