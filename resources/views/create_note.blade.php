@@ -10,6 +10,16 @@
 @section('content')
     <x-hero title="Notebook++ | Create"/>
     <section class="containersssss create-note">
+      @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+      @endif
+
         <form action="{{route('notes.store')}}" method="POST" class="flex awesome-form">
             @csrf
             <div class="left-side">
@@ -28,11 +38,11 @@
                 @endif
 
                 <div class="form-group">
-                    <input type="text" name="title" placeholder="Type Title" class="input-title">
+                    <input type="text" name="title" value="{{old('title')}}" placeholder="Type Title" class="input-title">
                 </div>
 
                 <div class="form-group">
-                    <textarea cols="5" rows="15" name="notesContent" id="editor"></textarea>
+                    <textarea cols="5" rows="15"  name="notesContent" id="editor">{{old('notesContent')}}"</textarea>
                 </div>      
             </div>
             <div class="right-side">
