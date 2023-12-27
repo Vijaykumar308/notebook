@@ -4,15 +4,18 @@
 
 @section('content')
     <x-hero title="My Notes | Collections"/>
-
    <div class="container note_container"> 
         <div class="notes-group">
-            @for ($i = 1; $i < 5; $i++)
-                <x-note-card />
-            @endfor
+            @foreach ($notes as $note)
+                <x-note-card 
+                    :title="$note['title']" 
+                    :featured-image="$note['image']"
+                    :body="$note['body']"
+                    :created="$note['created_at']"
+                />
+            @endforeach
         </div>
-
-        {{-- {{$categories}} --}}
+        
 
         <div class="category-section">
             <h1>Category</h1>

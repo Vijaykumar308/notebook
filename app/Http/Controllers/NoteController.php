@@ -13,13 +13,23 @@ class NoteController extends Controller
     public function index()
     {
         $userId = Auth::user()->id;
+
         $categories = DB::table('categories')
         ->join('notes', 'notes.category_id', '=', 'categories.id')
         ->select('categories.id','name')
         ->distinct()
         ->where('user_id', $userId)
         ->get();
-        return view('my_notes',['categories'=>$categories]);
+
+        $notes = DB::table('notes')
+        ->select('title','body','created_at')
+        ->where('user_id',$userId)
+        ->latest()
+        ->get();
+
+        $parsedResult = $this->parseApiResponse(json_decode($notes,1));
+
+        return view('my_notes',['categories'=>$categories,'notes'=>$parsedResult]);
     }
 
     public function create() 
@@ -77,6 +87,47 @@ class NoteController extends Controller
 
     public function edit() {
         return view('edit_note');
+    }
+
+    // Helping Functions
+
+    private function parseApiResponse($apiResponse) {
+        $parsedData = array();
+        foreach ($apiResponse as $item) {
+            $parsedItem = array();
+            $parsedItem['title'] = $item['title'];
+    
+            // Extract image path from the body
+            $imgPattern = '/<img[^>]+src="([^">]+)"[^>]*>/i';
+            preg_match($imgPattern, $item['body'], $matches);
+            $parsedItem['image'] = isset($matches[1]) ? $matches[1] : '';
+    
+            // Remove image tag from the body
+            $parsedItem['body'] = preg_replace($imgPattern, '', $item['body']);
+    
+            $parsedItem['created_at'] = $item['created_at'];
+    
+            $parsedData[] = $parsedItem;
+        }
+    
+        return $parsedData;
+    }
+
+
+    private function extractImagesAndHtml($text) {
+        // Regular expression to find image tags
+        $imgPattern = '/<img[^>]+src="([^">]+)"[^>]*>/i';
+    
+        // Find all image tags in the text
+        preg_match_all($imgPattern, $text, $matches);
+    
+        // Extract image sources
+        $images = $matches[1];
+    
+        // Remove all image tags from the text
+        $textWithoutImages = preg_replace($imgPattern, '', $text);
+    
+        return array('images' => $images, 'textWithoutImages' => $textWithoutImages);
     }
 }
 
