@@ -112,22 +112,5 @@ class NoteController extends Controller
     
         return $parsedData;
     }
-
-
-    private function extractImagesAndHtml($text) {
-        // Regular expression to find image tags
-        $imgPattern = '/<img[^>]+src="([^">]+)"[^>]*>/i';
-    
-        // Find all image tags in the text
-        preg_match_all($imgPattern, $text, $matches);
-    
-        // Extract image sources
-        $images = $matches[1];
-    
-        // Remove all image tags from the text
-        $textWithoutImages = preg_replace($imgPattern, '', $text);
-    
-        return array('images' => $images, 'textWithoutImages' => $textWithoutImages);
-    }
 }
 
