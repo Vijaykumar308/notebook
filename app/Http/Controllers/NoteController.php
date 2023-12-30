@@ -90,8 +90,16 @@ class NoteController extends Controller
     }
 
     public function readNotes($slug) {
-        $note = Note::where('slug',$slug)->first();
-        return view('welcome',compact('note'));
+        // $note = Note::where('slug',$slug)->first();
+        $note = DB::table('notes')
+        ->select('title','slug','body','created_at')
+        ->where('slug',$slug)
+        ->latest()
+        ->get();
+
+        // return view('read_note',['note'=>$note]);
+        $parsedResult = $this->parseApiResponse(json_decode($note,1));
+        return view('read_note',['note'=>$parsedResult]);
     }
 
     // Helping Functions

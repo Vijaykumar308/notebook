@@ -47,7 +47,7 @@ Route::post('/notes/create',[NoteController::class,'store'])->name('notes.store'
 Route::get('/notes/{slug}',[NoteController::class,'readNotes']);
 
 // Route::get('/notes/laravel-project', function () {
-//     return view('welcome');
+//     return view('read_note');
 // });
 
 
