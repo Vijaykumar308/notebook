@@ -92,39 +92,73 @@ class NoteController extends Controller
     public function readNotes($slug) {
         // $note = Note::where('slug',$slug)->first();
         $note = DB::table('notes')
-        ->select('title','slug','body','created_at')
-        ->where('slug',$slug)
+        ->join('categories', 'notes.category_id', '=', 'categories.id')
+        ->select('notes.title', 'notes.slug', 'categories.name', 'notes.body', 'notes.created_at')
+        ->where('notes.slug', $slug)
         ->latest()
         ->get();
-
         // return view('read_note',['note'=>$note]);
         $parsedResult = $this->parseApiResponse(json_decode($note,1));
         return view('read_note',['note'=>$parsedResult]);
     }
 
     // Helping Functions
-
     private function parseApiResponse($apiResponse) {
+        $fieldMappings = [
+            'title',
+            'slug',
+            'name',
+            'body',
+            'created_at', // Add other fields as needed
+        ];
+
         $parsedData = array();
         foreach ($apiResponse as $item) {
-            $parsedItem = array();
-            $parsedItem['title'] = $item['title'];
-            $parsedItem['slug'] = $item['slug'];
-    
-            // Extract image path from the body
-            $imgPattern = '/<img[^>]+src="([^">]+)"[^>]*>/i';
-            preg_match($imgPattern, $item['body'], $matches);
-            $parsedItem['image'] = isset($matches[1]) ? $matches[1] : '';
-    
-            // Remove image tag from the body
-            $parsedItem['body'] = preg_replace($imgPattern, '', $item['body']);
-    
-            $parsedItem['created_at'] = $item['created_at'];
-    
+            $parsedItem = [];
+        
+            foreach ($fieldMappings as $field) {
+                if ($field === 'body') {
+                    // Extract image path from the body
+                    $imgPattern = '/<img[^>]+src="([^">]+)"[^>]*>/i';
+                    preg_match($imgPattern, $item[$field], $matches);
+                    $parsedItem['image'] = isset($matches[1]) ? $matches[1] : '';
+        
+                    // Remove image tag from the body
+                    $parsedItem['body'] = preg_replace($imgPattern, '', $item[$field]);
+                } else {
+                    // Copy other fields as they are
+                    $parsedItem[$field] = $item[$field] ?? null;
+                }
+            }
+        
             $parsedData[] = $parsedItem;
         }
     
         return $parsedData;
     }
+
+
+    // private function parseApiResponse($apiResponse) {
+    //     $parsedData = array();
+    //     foreach ($apiResponse as $item) {
+    //         $parsedItem = array();
+    //         $parsedItem['title'] = $item['title'];
+    //         $parsedItem['slug'] = $item['slug'];
+    
+    //         // Extract image path from the body
+    //         $imgPattern = '/<img[^>]+src="([^">]+)"[^>]*>/i';
+    //         preg_match($imgPattern, $item['body'], $matches);
+    //         $parsedItem['image'] = isset($matches[1]) ? $matches[1] : '';
+    
+    //         // Remove image tag from the body
+    //         $parsedItem['body'] = preg_replace($imgPattern, '', $item['body']);
+    
+    //         $parsedItem['created_at'] = $item['created_at'];
+    
+    //         $parsedData[] = $parsedItem;
+    //     }
+    
+    //     return $parsedData;
+    // }
 }
 
