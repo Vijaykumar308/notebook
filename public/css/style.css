@@ -35,9 +35,12 @@ li {
     --light-green: #37BAA8;
 }
 .nav-active {
-    /* border-top: 2px solid yellow; */
-    border-bottom: 2px solid yellow;
+    border-bottom: 2px solid var(--light-green);
     padding: 0 0 .5rem;
+}
+
+.auth-user-name{
+    color: #fff;
 }
 
 .container {
@@ -68,6 +71,10 @@ li {
     align-items: center;
 }
 
+.navigation ul li {
+    padding: 0 0 0.5rem;
+}
+
 .navigation ul li a {
     color: var(--light-gray);
     letter-spacing: 1px;
@@ -81,12 +88,12 @@ li {
 .navigation .circle {
     border-radius: 50%;
     width: 36px;
-    background: #60a5fa;
+    background: var(--light-green);
     height: 36px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 28px;
+    font-size: 17px;
 }
 
 .navigation .circle a {
@@ -105,13 +112,14 @@ li {
 }
 
 .logout input[type="submit"]:hover {
-    background-color: #37BAA8;
+    background-color: var(--light-green);
     transition: .5s all;
 }
 
 
 .hero {
     background-color: var(--primary-dark);
+    /* background-color: var(--light-green); */
     padding: 10rem 0;
 }
 
@@ -420,13 +428,43 @@ to {opacity: 1}
 }
 
 .category-section ul {
-    margin-left: 3rem;
+    /* margin-left: 3rem; */
     margin-top: 2rem;
 }
-.category-section ul li {
-    list-style-type: disc;
-    padding: 1rem;
+.category-section ul input[type='checkbox'] {
+    /* list-style-type: disc; */
+    /* padding: 1rem; */
+    margin-bottom: 1.5rem;
 }
+
+.category-list-view {
+    margin: 4rem auto !important;
+    padding: 2rem;
+    background-color: var(--white);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+.category-list-view table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.category-list-view th, .category-list-view td {
+    border: 1px solid var(--light-gray);
+    padding: 1.2rem;
+    text-align: left;
+}
+
+.category-list-view th {
+    background-color: var(--light-green);
+    color: var(--white);
+}
+
+.category-list-view tr:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
 
 .note {
     padding: 5rem;
@@ -437,6 +475,9 @@ to {opacity: 1}
 .note-image {
     flex: 2;
     background-color: #bbb;
+    height: 60%;
+    min-height: 80%; 
+    background-color: #37BAA8;
 } 
 
 .note-image img {
@@ -476,6 +517,7 @@ to {opacity: 1}
 .notes-options {
     display: flex;
     gap: 2rem;
+    margin-top: 4rem;
 }
 
 .notes-group {
@@ -504,12 +546,82 @@ to {opacity: 1}
     background-color: #f75c9a;
 }
 
+.flex{
+    display: flex;
+    gap: 2rem;
+}
+
+.select-category {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-top: 3rem;
+    appearance: none;
+    outline: none;
+    border: 0;
+    width: 100%;
+    border-bottom: solid 2px var(--light-green);
+    padding: 1.5rem 6rem 0rem 0;
+    font-size: 1.8rem;
+    color: var(--light-green);
+    background: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-down-b-128.png") 100%/8% no-repeat;
+  }
+
+  .input-group {
+    width: 64%;
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+  }
+
+
+  .input-group input {
+    padding: 1.5rem 0px;
+  }
+
+  .input-group label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    /* font-family: "Georgia", "Cambria", "Times New Roman", "Times", serif; */
+    /* font-style: italic; */
+    /* font-size: 1.8rem; */
+    color: #999;
+    pointer-events: none;
+    -webkit-transition: all 0.15s ease-out 0s;
+    -moz-transition: all 0.15s ease-out 0s;
+    transition: all 0.15s ease-out 0s;
+  }
+
+.input-group input:focus + label,
+.input-group input.has-value + label,
+.input-group select:focus + label,
+.input-group select.has-value + label {
+  top: 25px;
+  font-size: 12px;
+  color: #aaaaaa;
+}
+
+.flex .left-side {
+    flex: 2;
+}
+
+.flex .right-side {
+    flex: 1;
+    display: flex;
+    /* justify-content: space-evenly; */
+    flex-direction: column;
+    align-items: center;
+
+    /* background-color: #28427e; */
+}
 .create-note {
-    width: 70%;
+    /* width: 70%; */
     margin: 0 auto;
     /* background-color: palegoldenrod; */
     padding: 6rem 12rem;
 }
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -534,10 +646,21 @@ to {opacity: 1}
     text-transform: capitalize;
     background-color: none;
 }
+
+.publish-btn-container {
+    display: block;
+    width: 70%;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    /* background: darkred; */
+}
+
 .create-note-button {
-    padding: 2rem 1rem;
+    width: 93%;
+    padding: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    /* margin-bottom: 2rem; */
 }
 
 /* Category Page Design */

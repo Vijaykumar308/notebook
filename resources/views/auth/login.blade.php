@@ -1,7 +1,7 @@
 <x-html_structure title="Login">
    <section class="main-wrapper"> 
         <div class="wrapper">
-            <form action="">
+            <form action="{{route('loginAction')}}">
                 <h1>Login</h1>
                 @if($errors->any())
                 <div class="alert alert-danger">
@@ -13,11 +13,11 @@
                 </div>
             @endif
                 <div class="input-box">
-                    <input type="text" placeholder="Username" value="mr.vijay.kumar308" required>
+                    <input type="text" placeholder="Username" name="username" value="mr.vijay.kumar308" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="password" value="123456" required>
+                    <input type="password" placeholder="password" name="password" value="123456" required>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
                 <div class="remember-forgot">

@@ -12,7 +12,6 @@ class CategoryController extends Controller
         return view('category.list',['categories' => $data]);
     }
 
-
     public function showCreateCategoryPage() {
         return view('category.create_category');
     }
@@ -30,7 +29,7 @@ class CategoryController extends Controller
         $category->description = $incomingFields['categoryDescription'];
         $category->save();
 
-        return back()->with('success','Category Added Successfully');
+        return back()->with('message','Category Added Successfully');
     }
 
     public function editCategory($id) {

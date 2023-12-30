@@ -1,10 +1,19 @@
 @extends('master')
-
 @section('title','Category')
 @section('content')
    <x-hero title="All Categories List"/>
+<<<<<<< HEAD
   <div class="container">
       <table id="categoryTable">
+=======
+  <div class="container category-list-view">
+    <div>
+        <a href="{{route('category.create')}}">
+            <button class="btn"> Add Category</button>
+        </a>
+    </div>
+      <table>
+>>>>>>> master
           <thead>
               <tr>
                   <th>Name</th>
@@ -43,6 +52,7 @@
   
 @endsection
 <style>
+<<<<<<< HEAD
     /*=============== Pagination Styles ====================*/
     .pagination-block {
         width: 100%;
@@ -199,4 +209,7 @@
     line-height: 1.25rem; /* 20px */
 }
 
+=======
+   
+>>>>>>> master
 </style>
