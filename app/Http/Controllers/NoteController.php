@@ -22,7 +22,7 @@ class NoteController extends Controller
         ->get();
 
         $notes = DB::table('notes')
-        ->select('title','body','created_at')
+        ->select('title','slug','body','created_at')
         ->where('user_id',$userId)
         ->latest()
         ->get();
@@ -89,6 +89,11 @@ class NoteController extends Controller
         return view('edit_note');
     }
 
+    public function readNotes($slug) {
+        $note = Note::where('slug',$slug)->first();
+        return view('welcome',compact('note'));
+    }
+
     // Helping Functions
 
     private function parseApiResponse($apiResponse) {
@@ -96,6 +101,7 @@ class NoteController extends Controller
         foreach ($apiResponse as $item) {
             $parsedItem = array();
             $parsedItem['title'] = $item['title'];
+            $parsedItem['slug'] = $item['slug'];
     
             // Extract image path from the body
             $imgPattern = '/<img[^>]+src="([^">]+)"[^>]*>/i';

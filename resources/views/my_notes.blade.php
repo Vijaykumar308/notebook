@@ -1,7 +1,6 @@
 @extends('master')
 
 @section('title','My Notes')
-
 @section('content')
     <x-hero title="My Notes | Collections"/>
    <div class="container note_container"> 
@@ -9,6 +8,7 @@
             @foreach ($notes as $note)
                 <x-note-card 
                     :title="$note['title']" 
+                    :slug="$note['slug']"
                     :featured-image="$note['image']"
                     :body="$note['body']"
                     :created="$note['created_at']"

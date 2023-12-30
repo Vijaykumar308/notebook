@@ -19,7 +19,8 @@
 
         <div class="notes-options">
             {{-- <form action="/notes/laravel-project" class="operation-button"> --}}
-            <a href="notes/laravel-project">
+            {{-- <a href="notes/laravel-project"> --}}
+            <a href="{{url('notes',$slug)}}">
                 <button class="btn btn-view">
                     <i class="fa-solid fa-book-open"></i>
                     Read

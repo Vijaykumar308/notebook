@@ -44,10 +44,11 @@ Route::get('/notes/edit/laravel-post',[NoteController::class,'edit'])->name('edi
 // upload featured images to public/media dir
 Route::post('/upload',[NoteController::class,'upload'])->name('ckeditor.upload');
 Route::post('/notes/create',[NoteController::class,'store'])->name('notes.store');
+Route::get('/notes/{slug}',[NoteController::class,'readNotes']);
 
-Route::get('/notes/laravel-project', function () {
-    return view('welcome');
-});
+// Route::get('/notes/laravel-project', function () {
+//     return view('welcome');
+// });
 
 
 /* Category Related Routes */

@@ -12,13 +12,15 @@ class noteCard extends Component
      * @return void
      */
     public $title; 
+    public $slug;
     public $featuredImage;
     public $body;
     public $created;
 
-    public function __construct($title, $featuredImage="http://127.0.0.1:8000/media/default_featured_image.png", $body, $created)
+    public function __construct($title, $slug, $featuredImage="http://127.0.0.1:8000/media/default_featured_image.png", $body, $created)
     {
         $this->title = $title;
+        $this->slug = $slug;
         $this->body  = $body;
         $this->featuredImage= $featuredImage;
         $this->created = $created;
