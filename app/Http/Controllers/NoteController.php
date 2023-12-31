@@ -85,8 +85,15 @@ class NoteController extends Controller
         return back()->with('message','Notes Created Successfully');
     }
 
-    public function edit() {
-        return view('edit_note');
+    public function edit($slug) {
+        $note = DB::table('notes')
+        ->join('categories', 'notes.category_id', '=', 'categories.id')
+        ->select('notes.title', 'notes.slug', 'categories.name', 'notes.body', 'notes.created_at')
+        ->where('notes.slug', $slug)
+        ->latest()
+        ->get();
+
+        return view('edit_note',compact('note'));
     }
 
     public function readNotes($slug) {

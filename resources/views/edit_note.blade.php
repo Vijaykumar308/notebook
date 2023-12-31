@@ -7,11 +7,11 @@
     <section class="container create-note">
         <form action="" method="post">
             <div class="form-group">
-                <input type="text" placeholder="Type Title" class="input-title">
+                <input type="text" placeholder="Type Title" value="{{$note[0]->title}}" class="input-title">
             </div>
 
             <div class="form-group">
-                <textarea cols="5" rows="15" id="editor"></textarea>
+                <textarea cols="5" rows="15" id="editor">{{$note[0]->body}}</textarea>
             </div>
 
             <div class="form-group">

@@ -28,7 +28,7 @@
             </a>
             {{-- </form> --}}
 
-            <a href="{{route('edit_notes')}}">
+            <a href="{{route('edit_notes', $slug)}}">
                 <button class="btn btn-update">
                     <i class="fa-solid fa-pen-to-square"></i>
                     Edit

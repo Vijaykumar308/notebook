@@ -39,7 +39,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 /* Notes Related Routes */
 Route::get('/notes',[NoteController::class,'index'])->name('notes');
 Route::get('/notes/create',[NoteController::class,'create'])->name('create_notes');
-Route::get('/notes/edit/laravel-post',[NoteController::class,'edit'])->name('edit_notes');
+Route::get('/notes/edit/{slug}',[NoteController::class,'edit'])->name('edit_notes');
 
 // upload featured images to public/media dir
 Route::post('/upload',[NoteController::class,'upload'])->name('ckeditor.upload');

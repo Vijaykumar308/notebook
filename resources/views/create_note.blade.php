@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="form-group">
-                    <textarea cols="5" rows="15"  name="notesContent" id="editor">{{old('notesContent')}}"</textarea>
+                    <textarea cols="5" rows="15"  name="notesContent" id="editor">{{old('notesContent')}}</textarea>
                 </div>      
             </div>
             <div class="right-side">
