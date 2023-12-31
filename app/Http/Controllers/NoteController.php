@@ -86,14 +86,23 @@ class NoteController extends Controller
     }
 
     public function edit($slug) {
+        $userId = Auth::user()->id;
+
+        $categories = DB::table('categories')
+        ->join('notes', 'notes.category_id', '=', 'categories.id')
+        ->select('categories.id','name')
+        ->distinct()
+        ->where('user_id', $userId)
+        ->get();
+
         $note = DB::table('notes')
         ->join('categories', 'notes.category_id', '=', 'categories.id')
-        ->select('notes.title', 'notes.slug', 'categories.name', 'notes.body', 'notes.created_at')
+        ->select('notes.title', 'notes.slug', 'categories.id', 'categories.name', 'notes.body', 'notes.created_at')
         ->where('notes.slug', $slug)
         ->latest()
         ->get();
 
-        return view('edit_note',compact('note'));
+        return view('edit_note',compact('note','categories'));
     }
 
     public function readNotes($slug) {
