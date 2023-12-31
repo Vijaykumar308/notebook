@@ -90,7 +90,6 @@ class NoteController extends Controller
     }
 
     public function readNotes($slug) {
-        // $note = Note::where('slug',$slug)->first();
         $note = DB::table('notes')
         ->join('categories', 'notes.category_id', '=', 'categories.id')
         ->select('notes.title', 'notes.slug', 'categories.name', 'notes.body', 'notes.created_at')
