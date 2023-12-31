@@ -40,6 +40,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/notes',[NoteController::class,'index'])->name('notes');
 Route::get('/notes/create',[NoteController::class,'create'])->name('create_notes');
 Route::get('/notes/edit/{slug}',[NoteController::class,'edit'])->name('edit_notes');
+Route::put('/notes/update/{slug}',[NoteController::class,'update'])->name('update_notes');
 
 // upload featured images to public/media dir
 Route::post('/upload',[NoteController::class,'upload'])->name('ckeditor.upload');

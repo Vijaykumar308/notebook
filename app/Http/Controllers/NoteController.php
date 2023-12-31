@@ -65,7 +65,7 @@ class NoteController extends Controller
 
     public function store(Request $request) {
         $request->validate([
-            'title'=>"required|max:15",
+            'title'=>"required|max:100",
             'notesContent'=> "required"
         ]);
 
@@ -103,6 +103,24 @@ class NoteController extends Controller
         ->get();
 
         return view('edit_note',compact('note','categories'));
+    }
+
+    public function update($slug, Request $request) 
+    {
+        $validatedData = $request->validate([
+            'title'=>"required|max:100",
+            'notesContent'=> "required"
+        ]);
+
+        // Find the note by slug and then update it
+        Note::where('slug', $slug)->update([
+            'title' => $validatedData['title'],
+            'category_id' => $request->category,
+            'body' => $validatedData['notesContent'],
+        ]);
+        
+        return back()->with('message','Notes Updated Successfully');
+
     }
 
     public function readNotes($slug) {

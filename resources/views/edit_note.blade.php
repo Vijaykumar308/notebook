@@ -20,8 +20,9 @@
         </div>
       @endif
 
-        <form action="" method="" class="flex awesome-form">
+        <form action="{{route('update_notes',$note[0]->slug)}}" method="POST" class="flex awesome-form">
             @csrf
+            @method('PUT')
             <div class="left-side">
                 @if(Session::has('message'))
                     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
